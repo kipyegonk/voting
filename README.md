@@ -10,3 +10,4 @@ A voting system that sends confirmation code to voters to verify via SMS before 
 * Choose the candidate to vote for from the list of candidates
 * Allows voting only once
 * View votes results
+# voting

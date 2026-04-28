@@ -5,7 +5,7 @@
  *
  * @author Morris
  */
-class Crud extends CI_Model {
+class crud extends CI_Model {
 
     function __construct() {
         parent::__construct();

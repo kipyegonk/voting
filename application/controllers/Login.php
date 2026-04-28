@@ -8,7 +8,7 @@ class Login extends CI_Controller {
     function __construct() {
         parent::__construct();
           $this->auth = new stdClass;
-        $this->load->library('flexi_auth');
+        // $this->load->library('flexi_auth');
     }
 
     public function index()

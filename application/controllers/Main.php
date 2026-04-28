@@ -13,7 +13,7 @@ class Main extends CI_Controller {
 
         $this->load->library('grocery_CRUD');
         $this->auth = new stdClass;
-        $this->load->library('flexi_auth');
+        // $this->load->library('flexi_auth');
         if (!$this->flexi_auth->is_logged_in()) {
             redirect('user/login');
         }
