@@ -445,7 +445,7 @@
 	 * Set whether a salt is stored in the database and then used for password and hash token generation.
 	 * @param bool
 	*/
-	$config['security']['store_database_salt'] = TRUE;
+	$config['security']['store_database_salt'] = FALSE;
 
 	/**
 	 * Set the length of a stored database salt (See above).
