@@ -1049,8 +1049,19 @@ class Flexi_auth_model extends Flexi_auth_lite_model
 		
 		require_once(APPPATH.'libraries/phpass/PasswordHash.php');				
 		$hash_token = new PasswordHash(8, FALSE);
+		
+		// Build password string based on whether salt storage is enabled
+		if ($this->auth->auth_security['store_database_salt'])
+		{
+			$password_to_check = $database_salt . $verify_password . $static_salt;
+		}
+		else
+		{
+			// When salt is not stored, just use the plain password
+			$password_to_check = $verify_password;
+		}
 					
-		return $hash_token->CheckPassword($database_salt . $verify_password . $static_salt, $database_password);
+		return $hash_token->CheckPassword($password_to_check, $database_password);
 	}
 
 	###++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###
