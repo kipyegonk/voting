@@ -10,7 +10,7 @@
  *
  * @author Morris
  */
-class users extends CI_Model {
+class Users extends CI_Model {
 
     function add($data){
         
