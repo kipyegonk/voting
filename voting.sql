@@ -438,7 +438,37 @@ ALTER TABLE `voters`
 --
 ALTER TABLE `votes`
   ADD PRIMARY KEY (`vote_id`);
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `voting_settings`
+--
+
+DROP TABLE IF EXISTS `voting_settings`;
+CREATE TABLE `voting_settings` (
+  `setting_id` int(11) NOT NULL AUTO_INCREMENT,
+  `voting_start` datetime DEFAULT NULL COMMENT 'When voting period starts',
+  `voting_end` datetime DEFAULT NULL COMMENT 'When voting period ends',
+  `show_results` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1 = show results, 0 = hide results until after voting',
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`setting_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Truncate table before insert `voting_settings`
+--
+
+TRUNCATE TABLE `voting_settings`;
+
+--
+-- Dumping data for table `voting_settings`
+--
+
+INSERT INTO `voting_settings` (`setting_id`, `voting_start`, `voting_end`, `show_results`, `created_at`) VALUES
+(1, NULL, NULL, 1, CURRENT_TIMESTAMP);
+
+-- --------------------------------------------------------
 --
 -- AUTO_INCREMENT for dumped tables
 --
